@@ -41,9 +41,17 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker Test Image
-        run: |
+        run: 
           docker build -f Dockerfiles/test.Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/sander-scott-intro-to-devops-a2:test-latest .
 
-      - name: Push Docker Image
-        run: |
+      - name: Push Docker Test Image
+        run: 
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/sander-scott-intro-to-devops-a2:test-latest
+
+      - name: Build Docker User Image
+        run: 
+          docker build -f Dockerfiles/user.Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/sander-scott-intro-to-devops-a2:user-latest .
+
+      - name: Push Docker User Image
+        run: 
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/sander-scott-intro-to-devops-a2:user-latest
