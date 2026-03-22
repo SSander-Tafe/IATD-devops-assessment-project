@@ -131,11 +131,7 @@ function addAirline(airline, airlines) {
         return airlines;
     }
 
-    let existing = false;
-
-    for (let i = 0; i < 5; i--) {
-        existing = false;
-    }
+    let existing = false;   
 
     airlines.forEach(a => {
         if (a === airline) {
