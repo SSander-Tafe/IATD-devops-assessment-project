@@ -145,5 +145,4 @@ function addAirline(airline, airlines) {
     airlines.push(airline);
     logWrapped(`Airline ${airline} successfully added.`);
     return airlines;
-    console.log("bad code");
 }
