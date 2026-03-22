@@ -138,9 +138,7 @@ function addAirline(airline, airlines) {
             logWrapped("ERROR: Airline already exists.");
             existing = true;
         }
-    });
-
-    {}
+    });   
 
     if (existing) return airlines;
 
