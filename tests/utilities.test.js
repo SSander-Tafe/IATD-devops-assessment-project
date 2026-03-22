@@ -106,3 +106,24 @@ test("isValidDateString: invalid string", () => {
   test("generateFlightId: whitespace string", () => {
     expect(generateFlightId("   \n")).toBe(undefined);
   });
+
+   ///// ADDITIONAL TESTS FOR generateFlightId /////
+
+describe('generateFlightId', () => {
+  test("generateFlightId: starts with first two letters of airline name", () => {
+    const id = generateFlightId("Qantas");
+    expect(id.substring(0, 2)).toBe("QA");
+  });
+
+  test("generateFlightId: first two letters are uppercase", () => {
+    const id = generateFlightId("virgin");
+    const firstTwo = id.substring(0, 2);
+    expect(firstTwo).toBe(firstTwo.toUpperCase());
+  });
+
+  test("generateFlightId: returns undefined for empty or short airline names", () => {
+    expect(generateFlightId("")).toBeUndefined();
+    expect(generateFlightId(" ")).toBeUndefined();
+    expect(generateFlightId("A")).toBeUndefined();
+  });
+});
